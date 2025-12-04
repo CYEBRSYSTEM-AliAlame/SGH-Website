@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "event_title_en": "New Cardiac Care Unit Opening",
+        "event_title_ar": "افتتاح وحدة رعاية القلب الجديدة",
+        "event_desc_en": "We are proud to announce the opening of our state-of-the-art Cardiac Care Unit, equipped with the latest technology to provide the best care for our patients.",
+        "event_desc_ar": "يسرنا أن نعلن عن افتتاح وحدة رعاية القلب الحديثة المجهزة بأحدث التقنيات لتقديم أفضل رعاية لمرضانا.",
+        "event_url_en": "cardiac-care-unit-opening",
+        "event_url_ar": "افتتاح-وحدة-رعاية-القلب",
+        "event_date": "2024-12-01"
+    },
+    {
+        "id": 2,
+        "event_title_en": "Free Health Screening Campaign",
+        "event_title_ar": "حملة فحص صحي مجانية",
+        "event_desc_en": "Join us for our annual free health screening campaign. Get checked for diabetes, hypertension, and cholesterol levels.",
+        "event_desc_ar": "انضموا إلينا في حملتنا السنوية للفحص الصحي المجاني. افحصوا مستويات السكري وضغط الدم والكوليسترول.",
+        "event_url_en": "free-health-screening",
+        "event_url_ar": "فحص-صحي-مجاني",
+        "event_date": "2024-11-30"
+    },
+    {
+        "id": 3,
+        "event_title_en": "World Diabetes Day Awareness",
+        "event_title_ar": "التوعية باليوم العالمي للسكري",
+        "event_desc_en": "Special awareness sessions and free consultations with our endocrinology team to mark World Diabetes Day.",
+        "event_desc_ar": "جلسات توعية خاصة واستشارات مجانية مع فريق الغدد الصماء لدينا بمناسبة اليوم العالمي للسكري.",
+        "event_url_en": "world-diabetes-day",
+        "event_url_ar": "اليوم-العالمي-للسكري",
+        "event_date": "2024-11-14"
+    },
+    {
+        "id": 4,
+        "event_title_en": "Pediatric Vaccination Drive",
+        "event_title_ar": "حملة تطعيم الأطفال",
+        "event_desc_en": "Ensure your children are up to date with their vaccinations. Our pediatrics department is offering extended hours for vaccinations.",
+        "event_desc_ar": "تأكدوا من حصول أطفالكم على التطعيمات المطلوبة. قسم طب الأطفال لدينا يقدم ساعات عمل ممتدة للتطعيمات.",
+        "event_url_en": "pediatric-vaccination",
+        "event_url_ar": "تطعيم-الأطفال",
+        "event_date": "2024-12-15"
+    },
+    {
+        "id": 5,
+        "event_title_en": "Heart Health Seminar",
+        "event_title_ar": "ندوة صحة القلب",
+        "event_desc_en": "Learn about heart disease prevention and healthy lifestyle choices from our cardiology experts.",
+        "event_desc_ar": "تعلموا عن الوقاية من أمراض القلب وخيارات نمط الحياة الصحي من خبراء أمراض القلب لدينا.",
+        "event_url_en": "heart-health-seminar",
+        "event_url_ar": "ندوة-صحة-القلب",
+        "event_date": "2024-12-20"
+    }
+]

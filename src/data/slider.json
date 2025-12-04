@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "header1_en": "Welcome to Sahel General Hospital",
+        "header1_ar": "مرحباً بكم في مستشفى الساحل العام",
+        "header2_en": "Providing Excellence in Healthcare Since 1963",
+        "header2_ar": "نقدم التميز في الرعاية الصحية منذ عام 1963",
+        "slide_image_file": "/images/slider/slide1.jpg",
+        "link_url": "/en/about-us",
+        "display_order": 1
+    },
+    {
+        "id": 2,
+        "header1_en": "Advanced Medical Services",
+        "header1_ar": "خدمات طبية متقدمة",
+        "header2_en": "State-of-the-art facilities and expert medical professionals",
+        "header2_ar": "مرافق حديثة وأطباء متخصصون ذوو خبرة",
+        "slide_image_file": "/images/slider/slide2.jpg",
+        "link_url": "/en/services",
+        "display_order": 2
+    },
+    {
+        "id": 3,
+        "header1_en": "Meet Our Doctors",
+        "header1_ar": "تعرف على أطبائنا",
+        "header2_en": "309 highly qualified medical professionals ready to serve you",
+        "header2_ar": "309 طبيب مؤهل تأهيلاً عالياً في خدمتكم",
+        "slide_image_file": "/images/slider/slide3.jpg",
+        "link_url": "/en/our-doctors",
+        "display_order": 3
+    },
+    {
+        "id": 4,
+        "header1_en": "24/7 Emergency Care",
+        "header1_ar": "رعاية طوارئ على مدار الساعة",
+        "header2_en": "Always here when you need us most",
+        "header2_ar": "دائماً هنا عندما تحتاجوننا",
+        "slide_image_file": "/images/slider/slide4.jpg",
+        "link_url": "/en/services/emergency",
+        "display_order": 4
+    }
+]

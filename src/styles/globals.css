@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+    /* Warm, Welcoming Lebanese-Inspired Color Palette */
+    --color-background: #faf9f7;
+    --color-surface: #ffffff;
+    --color-primary: #118cb7;
+    --color-primary-hover: #0d6d8f;
+    --color-primary-light: #81cdc1;
+    --color-accent: #c41e3a;
+    --color-accent-light: #ED1C24;
+    --color-text-primary: #2c3e50;
+    --color-text-secondary: #5a6c7d;
+    --color-warm-gray: #e8e6e3;
+    --color-cream: #fefcf9;
+    
+    /* Lebanese Flag Colors (subtle accents) */
+    --color-lebanon-red: #ED1C24;
+    --color-lebanon-white: #FFFFFF;
+    --color-lebanon-green: #00A651;
+    --color-cedar-green: #2d5016;
+
+    /* Fonts */
+  --font-geist-sans: 'Geist Sans', system-ui, sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
+    --font-ibm-plex-arabic: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+  }
+
+  body {
+        @apply bg-background text-text-primary antialiased;
+    font-family: var(--font-geist-sans);
+  }
+
+    /* RTL Support */
+    [dir="rtl"] body {
+        font-family: var(--font-ibm-plex-arabic);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-semibold tracking-normal;
+        letter-spacing: -0.01em;
+    }
+    
+    /* Warm, friendly button styles */
+    .btn-primary {
+        @apply bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-md hover:shadow-lg;
+    }
+    
+    /* Lebanese-inspired warm gradients */
+    .gradient-warm {
+        background: linear-gradient(135deg, #81cdc1 0%, #118cb7 50%, #0d6d8f 100%);
+    }
+    
+    .gradient-lebanon-red {
+        background: linear-gradient(135deg, #ED1C24 0%, #c41e3a 100%);
+    }
+    
+    /* Lebanese flag-inspired gradient (subtle) */
+    .gradient-lebanon {
+        background: linear-gradient(135deg, #00A651 0%, #FFFFFF 50%, #ED1C24 100%);
+    }
+    
+    /* Cedar tree pattern background */
+    .pattern-cedar {
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(45, 80, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(45, 80, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 20%, rgba(45, 80, 22, 0.08) 0%, transparent 50%);
+    }
+    
+    /* Traditional Lebanese geometric pattern */
+    .pattern-geometric {
+        background-image: 
+            repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(17, 140, 183, 0.03) 10px, rgba(17, 140, 183, 0.03) 20px),
+            repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(237, 28, 36, 0.03) 10px, rgba(237, 28, 36, 0.03) 20px);
+    }
+    
+    /* Rounded, friendly card style */
+    .card-warm {
+        @apply bg-white rounded-2xl p-6 border border-warm-gray/50 hover:shadow-lg transition-all duration-300;
+        box-shadow: 0 4px 20px rgba(17, 140, 183, 0.15);
+    }
+
+    /* Carbon Grid Overlay (Optional for dev) */
+    .carbon-grid {
+        @apply grid grid-cols-4 md:grid-cols-8 lg:grid-cols-16 gap-4 max-w-[1584px] mx-auto px-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+    /* Logical Properties for RTL */
+    .ms-auto {
+        margin-inline-start: auto;
+    }
+
+    .me-auto {
+        margin-inline-end: auto;
+    }
+
+    .ps-4 {
+        padding-inline-start: 1rem;
+    }
+
+    .pe-4 {
+        padding-inline-end: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+}

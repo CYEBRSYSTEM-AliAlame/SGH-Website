@@ -1,0 +1,44 @@
+# Development files
+.env.local
+.env*.local
+*.log
+
+# Documentation (keep README.md)
+*.md
+!README.md
+
+# Old website files
+Old-Website/
+
+# Migration files (if not needed in production)
+doctors-migration/
+
+# Test files
+test-*.mjs
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# AWS Amplify config (not needed for Vercel)
+amplify.yml
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts (Vercel handles this)
+.next/
+out/
+dist/
+
+# Node modules (Vercel installs fresh)
+node_modules/
+
