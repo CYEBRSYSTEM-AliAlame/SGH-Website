@@ -59,7 +59,6 @@ export default function WhyChooseUs({ lang = 'en' }: WhyChooseUsProps) {
             <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
               {lang === 'ar' ? 'لماذا تختار مستشفى الساحل' : 'Why Choose Sahel General Hospital'}
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-[#00A651] via-[#FFFFFF] to-[#ED1C24] mx-auto mb-4 rounded-full" />
             <p className="text-text-secondary text-lg max-w-2xl mx-auto">
               {lang === 'ar'
                 ? 'نحن ملتزمون بتقديم أفضل رعاية صحية ممكنة'

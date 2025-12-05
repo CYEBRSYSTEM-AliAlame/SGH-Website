@@ -278,9 +278,9 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                                             className="card-warm group hover:scale-105 transition-transform"
                                         >
                                             <div className="flex items-center gap-4">
-                                                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 flex-shrink-0">
+                                                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 flex-shrink-0 bg-white">
                                                     <DoctorImage
-                                                        src={`/images/doctors/${doctor.doctor_photo_file || 'anonymous_doctor_male.png'}`}
+                                                        doctor={doctor}
                                                         alt={doctorName}
                                                         fill
                                                         className="object-cover"

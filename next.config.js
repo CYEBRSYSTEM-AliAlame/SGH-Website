@@ -20,7 +20,7 @@ const nextConfig = {
   // Vercel optimizations
   compress: true,
   poweredByHeader: false,
-  reactStrictMode: true,
+  reactStrictMode: false, // Disabled to prevent double rendering in development
 }
 
 module.exports = nextConfig

@@ -147,11 +147,14 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
   return (
     <>
       <header className={cn(
-        "fixed left-0 right-0 z-50 transition-all duration-300",
+        "fixed left-0 right-0 z-50 transition-all duration-300 bg-surface border-b",
         scrolled 
-          ? "top-[52px] bg-white/98 backdrop-blur-lg shadow-lg border-b border-primary/10 py-2" 
-          : "top-[52px] bg-white/95 backdrop-blur-md shadow-sm border-b border-warm-gray/50 py-2.5"
+          ? "top-[52px] shadow-lg border-[#e0e0e0] py-2" 
+          : "top-[52px] shadow-md border-[#e0e0e0] py-2.5"
       )}>
+        {/* Carbon Design System Accent Bar */}
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-primary" />
+        
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo with Animation */}
@@ -179,10 +182,10 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                     {item.submenu ? (
                       <>
                         <button className={cn(
-                          "relative px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 group/button",
+                          "relative px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 group/button",
                           isActive
-                            ? "text-primary bg-primary-light/20"
-                            : "text-text-secondary hover:text-primary hover:bg-primary-light/10"
+                            ? "text-primary bg-primary/10"
+                            : "text-text-secondary hover:text-primary hover:bg-primary/5"
                         )}>
                           {Icon && <Icon className="w-4 h-4" />}
                           <span>{item.name}</span>
@@ -192,11 +195,11 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                           )}
                         </button>
 
-                        {/* Enhanced Mega Menu Dropdown */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[650px] opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-300 transform translate-y-4 group-hover/menu:translate-y-0">
-                          <div className="bg-white rounded-2xl shadow-2xl border border-warm-gray/50 overflow-hidden p-6 relative">
-                            {/* Decorative gradient background */}
-                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00A651] via-primary to-[#ED1C24]" />
+                        {/* Enhanced Mega Menu Dropdown with Carbon Design System */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[650px] opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-300 transform translate-y-4 group-hover/menu:translate-y-0 z-50">
+                          <div className="bg-surface rounded-xl shadow-2xl border border-[#e0e0e0] overflow-hidden p-6 relative">
+                            {/* Carbon Design System Accent Bar */}
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
                             
                             <div className="grid grid-cols-2 gap-4">
                               {item.submenu.map((sub) => {
@@ -205,9 +208,9 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                                   <Link
                                     key={sub.name}
                                     href={sub.href}
-                                    className="group/item flex items-start gap-4 p-4 rounded-xl hover:bg-gradient-to-br hover:from-primary-light/10 hover:to-primary/5 transition-all duration-300 border border-transparent hover:border-primary/20 hover:shadow-md"
+                                    className="group/item flex items-start gap-4 p-4 rounded-lg hover:bg-primary/5 transition-all duration-300 border border-transparent hover:border-primary/20 hover:shadow-md"
                                   >
-                                    <div className="w-10 h-10 rounded-lg bg-primary-light/20 text-primary flex items-center justify-center flex-shrink-0 group-hover/item:bg-primary group-hover/item:text-white group-hover/item:scale-110 transition-all duration-300">
+                                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 group-hover/item:bg-primary group-hover/item:text-white group-hover/item:scale-110 transition-all duration-300 border border-primary/20 group-hover/item:border-primary">
                                       {SubIcon && <SubIcon className="w-5 h-5" />}
                                     </div>
                                     <div className="flex-1 min-w-0">
@@ -231,10 +234,10 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                       <Link
                         href={item.href!}
                         className={cn(
-                          "relative px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 flex items-center gap-2 group/link",
+                          "relative px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 group/link",
                           isActive
-                            ? "text-primary bg-primary-light/20"
-                            : "text-text-secondary hover:text-primary hover:bg-primary-light/10"
+                            ? "text-primary bg-primary/10"
+                            : "text-text-secondary hover:text-primary hover:bg-primary/5"
                         )}
                       >
                         {Icon && <Icon className="w-4 h-4 group-hover/link:scale-110 transition-transform duration-300" />}
@@ -251,17 +254,17 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
 
             {/* Actions */}
             <div className="hidden lg:flex items-center gap-3">
-              {/* Language Switcher */}
-              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-cream border border-warm-gray/50">
+              {/* Language Switcher with Carbon Design System */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#f4f4f4] border border-[#e0e0e0]">
                 <Globe className="w-4 h-4 text-text-secondary" />
                 <div className="flex gap-1">
                   <Link 
                     href="/en" 
                     className={cn(
-                      "px-2 py-1 rounded-lg text-xs font-semibold transition-all duration-300",
+                      "px-2.5 py-1 rounded-md text-xs font-semibold transition-all duration-300",
                       lang === 'en' 
                         ? "bg-primary text-white shadow-md" 
-                        : "text-text-secondary hover:text-primary hover:bg-primary-light/10"
+                        : "text-text-secondary hover:text-primary hover:bg-primary/5"
                     )}
                   >
                     EN
@@ -269,10 +272,10 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                   <Link 
                     href="/ar" 
                     className={cn(
-                      "px-2 py-1 rounded-lg text-xs font-semibold transition-all duration-300",
+                      "px-2.5 py-1 rounded-md text-xs font-semibold transition-all duration-300",
                       lang === 'ar' 
                         ? "bg-primary text-white shadow-md" 
-                        : "text-text-secondary hover:text-primary hover:bg-primary-light/10"
+                        : "text-text-secondary hover:text-primary hover:bg-primary/5"
                     )}
                   >
                     AR
@@ -280,19 +283,19 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                 </div>
               </div>
 
-              {/* Emergency Contact */}
+              {/* Emergency Contact with Carbon Design System */}
               <Link
                 href="tel:+9611858333"
-                className="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm bg-accent text-white hover:bg-accent-light transition-all shadow-lg hover:shadow-xl hover:scale-105 group"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm bg-[#da1e28] text-white hover:bg-[#b8191f] transition-all shadow-md hover:shadow-lg hover:scale-105 group border border-[#da1e28]/20"
               >
                 <Phone className="w-4 h-4 group-hover:animate-pulse" />
                 <span className="hidden xl:inline">{lang === 'ar' ? 'طوارئ' : 'Emergency'}</span>
               </Link>
 
-              {/* Book Appointment CTA */}
+              {/* Book Appointment CTA with Carbon Design System */}
               <Link
                 href={`/${lang}/contact`}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-primary to-primary-hover text-white hover:from-primary-hover hover:to-primary transition-all shadow-lg hover:shadow-xl hover:scale-105 group"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm bg-primary text-white hover:bg-primary-hover transition-all shadow-md hover:shadow-lg hover:scale-105 group border border-primary/20"
               >
                 <Calendar className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                 <span>{lang === 'ar' ? 'احجز موعداً' : 'Book Appointment'}</span>
@@ -301,7 +304,7 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-xl text-text-primary hover:bg-primary-light/10 hover:text-primary transition-all duration-300"
+              className="lg:hidden p-2 rounded-lg text-text-primary hover:bg-primary/5 hover:text-primary transition-all duration-300 border border-transparent hover:border-primary/20"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open menu"
             >
@@ -324,16 +327,16 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
         isRtl && (isMobileMenuOpen ? "translate-x-0" : "-translate-x-full left-0 right-auto")
       )}>
         {/* Mobile Header */}
-        <div className="p-6 border-b border-warm-gray/50 bg-gradient-to-r from-primary-light/10 to-primary/5 flex items-center justify-between">
+        <div className="p-6 border-b border-[#e0e0e0] bg-primary/5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-hover text-white flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center shadow-md border border-primary/20">
               <TreePine className="w-5 h-5" />
             </div>
             <span className="font-bold text-lg text-text-primary">Menu</span>
           </div>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="p-2 text-text-secondary hover:text-accent hover:bg-accent/10 rounded-xl transition-all duration-300"
+            className="p-2 text-text-secondary hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 border border-transparent hover:border-primary/20"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -352,10 +355,10 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                   <>
                     <button
                       className={cn(
-                        "w-full flex items-center justify-between py-3 px-2 text-left font-semibold rounded-xl transition-all duration-300",
+                        "w-full flex items-center justify-between py-3 px-2 text-left font-semibold rounded-lg transition-all duration-300",
                         isActive
-                          ? "text-primary bg-primary-light/20"
-                          : "text-text-primary hover:text-primary hover:bg-primary-light/10"
+                          ? "text-primary bg-primary/10"
+                          : "text-text-primary hover:text-primary hover:bg-primary/5"
                       )}
                       onClick={() => setOpenSubmenu(openSubmenu === item.name ? null : item.name)}
                     >
@@ -369,7 +372,7 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                       )} />
                     </button>
                     <div className={cn(
-                      "space-y-1 overflow-hidden transition-all duration-300 bg-cream rounded-xl",
+                      "space-y-1 overflow-hidden transition-all duration-300 bg-[#f4f4f4] rounded-lg",
                       openSubmenu === item.name ? "max-h-[500px] p-2 mt-2" : "max-h-0"
                     )}>
                       {item.submenu.map((sub) => {
@@ -378,11 +381,11 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                           <Link
                             key={sub.name}
                             href={sub.href}
-                            className="flex items-center gap-3 px-3 py-2.5 text-sm text-text-secondary hover:text-primary hover:bg-white rounded-lg transition-all duration-300 group"
+                            className="flex items-center gap-3 px-3 py-2.5 text-sm text-text-secondary hover:text-primary hover:bg-white rounded-lg transition-all duration-300 group border border-transparent hover:border-primary/20"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {SubIcon && (
-                              <div className="w-8 h-8 rounded-lg bg-primary-light/20 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                              <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 border border-primary/20 group-hover:border-primary">
                                 <SubIcon className="w-4 h-4" />
                               </div>
                             )}
@@ -401,10 +404,10 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                   <Link
                     href={item.href!}
                     className={cn(
-                      "flex items-center gap-3 py-3 px-2 font-semibold rounded-xl transition-all duration-300",
+                      "flex items-center gap-3 py-3 px-2 font-semibold rounded-lg transition-all duration-300",
                       isActive
-                        ? "text-primary bg-primary-light/20"
-                        : "text-text-primary hover:text-primary hover:bg-primary-light/10"
+                        ? "text-primary bg-primary/10"
+                        : "text-text-primary hover:text-primary hover:bg-primary/5"
                     )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -418,15 +421,15 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
         </div>
 
         {/* Mobile Footer Actions */}
-        <div className="p-4 border-t border-warm-gray/50 bg-cream space-y-3">
+        <div className="p-4 border-t border-[#e0e0e0] bg-[#f4f4f4] space-y-3">
           <div className="flex justify-center gap-2">
             <Link 
               href="/en" 
               className={cn(
-                "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300",
+                "px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300",
                 lang === 'en' 
                   ? "bg-primary text-white shadow-md" 
-                  : "bg-white text-text-secondary hover:bg-primary-light/10 hover:text-primary"
+                  : "bg-white text-text-secondary hover:bg-primary/5 hover:text-primary border border-[#e0e0e0]"
               )}
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -435,10 +438,10 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
             <Link 
               href="/ar" 
               className={cn(
-                "px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300",
+                "px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300",
                 lang === 'ar' 
                   ? "bg-primary text-white shadow-md" 
-                  : "bg-white text-text-secondary hover:bg-primary-light/10 hover:text-primary"
+                  : "bg-white text-text-secondary hover:bg-primary/5 hover:text-primary border border-[#e0e0e0]"
               )}
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -448,7 +451,7 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
           
           <Link
             href="tel:+9611858333"
-            className="flex items-center justify-center gap-2 w-full bg-accent text-white py-3 rounded-xl font-semibold hover:bg-accent-light transition-all shadow-lg"
+            className="flex items-center justify-center gap-2 w-full bg-[#da1e28] text-white py-3 rounded-lg font-semibold hover:bg-[#b8191f] transition-all shadow-md border border-[#da1e28]/20"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <Phone className="w-5 h-5" />
@@ -457,7 +460,7 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
           
           <Link
             href={`/${lang}/contact`}
-            className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-primary to-primary-hover text-white py-3 rounded-xl font-semibold hover:from-primary-hover hover:to-primary transition-all shadow-lg"
+            className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all shadow-md border border-primary/20"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <Calendar className="w-5 h-5" />
