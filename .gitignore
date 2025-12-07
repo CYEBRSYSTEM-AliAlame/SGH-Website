@@ -48,3 +48,19 @@ amplify/
 # Documentation (not needed for website)
 docs/
 
+# Log files
+*.log
+logs-*.txt
+*.txt.log
+
+# TypeScript build info
+*.tsbuildinfo
+
+
+# Log files
+*.log
+logs-*.txt
+*.txt.log
+
+# TypeScript build info
+*.tsbuildinfo

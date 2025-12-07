@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Calendar, UserProfile, Phone, Document, ArrowRight } from '@carbon/icons-react'
-import { dictionary, type Locale } from '@/lib/i18n'
 import { cn } from '@/lib/utils'
 
 interface QuickAccessProps {

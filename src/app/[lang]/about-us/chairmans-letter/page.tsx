@@ -4,8 +4,7 @@ import chairmanImg from '@/assets/about/Fadi-Alame.jpg'
 import { type Locale } from '@/lib/i18n'
 
 export default async function ChairmansLetterPage({ params }: { params: Promise<{ lang: Locale }> }) {
-    const { lang } = await params
-    const isRtl = lang === 'ar'
+    await params
 
     return (
         <main className="min-h-screen bg-background">

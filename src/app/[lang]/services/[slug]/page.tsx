@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { ArrowLeft, Stethoscope, Users, Phone, Calendar, Award, TreePine } from 'lucide-react'
 import { medicalService } from '@/services/medicalService'
 import { doctorService } from '@/services/doctorService'
-import type { MedicalService, Doctor } from '@/types'
+import type { Doctor } from '@/types'
 import { cn } from '@/lib/utils'
 import DoctorImage from '@/components/DoctorImage'
 

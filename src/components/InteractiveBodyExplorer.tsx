@@ -109,6 +109,7 @@ export default function InteractiveBodyExplorer({ lang = 'en' }: InteractiveBody
             const timer = setTimeout(() => setPulseAnimation(null), 2000)
             return () => clearTimeout(timer)
         }
+        return undefined
     }, [selectedPart])
 
     const handlePartClick = (part: BodyPart) => {

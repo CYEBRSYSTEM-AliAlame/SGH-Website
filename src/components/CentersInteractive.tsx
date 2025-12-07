@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { Heart, BrainCog, Baby, Activity, Microscope, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react'
+import { Heart, BrainCog, Baby, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface CentersInteractiveProps {

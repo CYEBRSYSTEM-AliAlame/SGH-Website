@@ -6,11 +6,6 @@ import type { Doctor } from '@/types'
  * @returns Path to the doctor's photo or default avatar
  */
 export function getDoctorImagePath(doctor: Doctor): string {
-    // For now, use placeholder avatars until actual photos are added
-    // Female doctors typically have names ending in 'a' or contain certain patterns
-    const isFemale = doctor.doctor_name_en.match(/\b(Dr\.|Doctor)\s+(.*?)\s*$/)?.[2]?.endsWith('a') ||
-        doctor.doctor_photo_file === 'anonymous_doctor_female.png'
-
     // Use Dicebear avatars as placeholders
     const seed = doctor.doctor_name_en.replace(/\s+/g, '-').toLowerCase()
     return `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}&backgroundColor=b6e3f4`

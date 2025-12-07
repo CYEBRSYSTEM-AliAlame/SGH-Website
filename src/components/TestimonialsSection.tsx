@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Quotes, ChevronLeft, ChevronRight, LocationStar, Favorite, Hospital } from '@carbon/icons-react'
+import { Quotes, ChevronLeft, ChevronRight, LocationStar, Hospital } from '@carbon/icons-react'
 import { cn } from '@/lib/utils'
 import ScrollAnimation from './ScrollAnimation'
 

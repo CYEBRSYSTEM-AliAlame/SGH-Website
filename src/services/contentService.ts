@@ -1,4 +1,4 @@
-import { query, queryOne } from '@/lib/db'
+import { queryOne } from '@/lib/db'
 import type { TextContent, Picture } from '@/types'
 import { validateDatabaseHtmlContent } from '@/lib/validation'
 

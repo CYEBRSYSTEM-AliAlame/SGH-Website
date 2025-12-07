@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { MapPin, Phone, Mail, Send, Loader2 } from 'lucide-react'
-import { dictionary, type Locale } from '@/lib/i18n'
 import { useParams } from 'next/navigation'
 
 const contactSchema = z.object({
@@ -20,7 +19,6 @@ type ContactFormValues = z.infer<typeof contactSchema>
 export default function ContactPage() {
     const params = useParams()
     const lang = (params?.lang as string) || 'en'
-    const dict = dictionary[lang as Locale] || dictionary['en']
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const isRTL = lang === 'ar'
@@ -34,7 +32,7 @@ export default function ContactPage() {
         resolver: zodResolver(contactSchema),
     })
 
-    const onSubmit = async (data: ContactFormValues) => {
+    const onSubmit = async () => {
         setIsSubmitting(true)
         // Simulate API call
         await new Promise((resolve) => setTimeout(resolve, 1500))

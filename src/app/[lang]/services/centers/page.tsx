@@ -1,4 +1,3 @@
-import { dictionary, type Locale } from '@/lib/i18n'
 import { Award, HeartPulse, Brain, Baby, Activity, Microscope, ShieldCheck, Sparkles, ArrowRight } from 'lucide-react'
 import { Metadata } from 'next'
 import CentersInteractive from '@/components/CentersInteractive'
@@ -62,7 +61,6 @@ const supportCards = [
 
 export default async function CentersPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params
-    const dict = dictionary[lang as Locale] || dictionary['en']
     const isRtl = lang === 'ar'
 
     return (

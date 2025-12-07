@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { Sparkles, SlidersHorizontal, Users, Star, Award, ArrowRight, Stethoscope, Languages, MapPin, Clock } from 'lucide-react'
+import { SlidersHorizontal, Users, Star, Award, ArrowRight, Stethoscope, Languages, Clock } from 'lucide-react'
 import type { Doctor } from '@/types'
 import { cn } from '@/lib/utils'
 

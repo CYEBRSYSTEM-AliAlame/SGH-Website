@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { contentService } from '@/services/contentService'
-import { Favorite, Trophy, UserMultiple, Tag, ArrowRight, Hospital } from '@carbon/icons-react'
+import { Trophy, UserMultiple, Tag, ArrowRight, Hospital } from '@carbon/icons-react'
 import { cn } from '@/lib/utils'
 import { sanitizeHtml } from '@/lib/sanitize'
 

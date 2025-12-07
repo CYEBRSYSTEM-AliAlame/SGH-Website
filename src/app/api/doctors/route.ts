@@ -120,7 +120,7 @@ export async function GET(request: NextRequest) {
         const keyword = validatedParams.keyword_name.toLowerCase()
         doctors = doctors.filter(doc =>
           doc.doctor_name_en.toLowerCase().includes(keyword) ||
-          doc.doctor_name_ar.includes(validatedParams.keyword_name)
+          (validatedParams.keyword_name && doc.doctor_name_ar.includes(validatedParams.keyword_name))
         )
       }
 
@@ -129,9 +129,9 @@ export async function GET(request: NextRequest) {
         const keyword = validatedParams.keyword_general.toLowerCase()
         doctors = doctors.filter(doc =>
           doc.doctor_name_en.toLowerCase().includes(keyword) ||
-          doc.doctor_name_ar.includes(validatedParams.keyword_general) ||
+          (validatedParams.keyword_general && doc.doctor_name_ar.includes(validatedParams.keyword_general)) ||
           doc.doctor_exp_en.toLowerCase().includes(keyword) ||
-          doc.doctor_exp_ar.includes(validatedParams.keyword_general)
+          (validatedParams.keyword_general && doc.doctor_exp_ar.includes(validatedParams.keyword_general))
         )
       }
 

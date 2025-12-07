@@ -1,7 +1,6 @@
 'use client'
 
 import { Phone, Clock, AlertCircle } from 'lucide-react'
-import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
 interface EmergencyBannerProps {
@@ -9,7 +8,6 @@ interface EmergencyBannerProps {
 }
 
 export default function EmergencyBanner({ lang = 'en' }: EmergencyBannerProps) {
-  const isRtl = lang === 'ar'
   
   return (
     <section className="relative py-6 bg-gradient-to-r from-[#ED1C24] via-red-600 to-[#ED1C24] text-white overflow-hidden">

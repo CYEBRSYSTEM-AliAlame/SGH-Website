@@ -1,5 +1,4 @@
-import { dictionary, type Locale } from '@/lib/i18n'
-import { ShieldCheck, ClipboardCheck, Phone, Clock } from 'lucide-react'
+import { ClipboardCheck, Phone, Clock } from 'lucide-react'
 import { Metadata } from 'next'
 import InsuranceNetwork from '@/components/InsuranceNetwork'
 
@@ -10,8 +9,6 @@ export const metadata: Metadata = {
 
 export default async function InsurancePage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params
-    const dict = dictionary[lang as Locale] || dictionary['en']
-    const isRTL = lang === 'ar'
 
     return (
         <div className="min-h-screen bg-background py-12 md:py-20">

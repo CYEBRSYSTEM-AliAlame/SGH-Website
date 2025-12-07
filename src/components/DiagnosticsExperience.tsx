@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Stethoscope, Activity, Microscope, Waves, Brain, HeartPulse, ShieldCheck } from 'lucide-react'
+import { Stethoscope, Activity, Microscope, Waves, HeartPulse, ShieldCheck } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const diagnosticModules = [

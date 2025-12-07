@@ -19,7 +19,7 @@ function getPurify(): typeof DOMPurify {
     if (typeof window === 'undefined') {
       // Server-side: Use JSDOM to create a window object
       const jsdomWindow = new JSDOM('').window
-      purify = DOMPurify(jsdomWindow as unknown as Window)
+      purify = DOMPurify(jsdomWindow as unknown as Window & typeof globalThis)
     } else {
       // Client-side: Use the browser's window object
       purify = DOMPurify(window)
@@ -64,7 +64,7 @@ const sanitizeConfig: DOMPurify.Config = {
  * @param config - Optional custom DOMPurify configuration
  * @returns Sanitized HTML string safe for rendering
  */
-export function sanitizeHtml(dirty: string | null | undefined, config?: DOMPurify.Config): string {
+export function sanitizeHtml(dirty: string | null | undefined, config?: Partial<DOMPurify.Config>): string {
   if (!dirty) {
     return ''
   }
@@ -75,9 +75,9 @@ export function sanitizeHtml(dirty: string | null | undefined, config?: DOMPurif
   try {
     // Get purify instance (lazy initialization)
     const purifyInstance = getPurify()
-    // Sanitize the HTML content
-    const clean = purifyInstance.sanitize(dirty, sanitizeOptions)
-    return clean
+    // Sanitize the HTML content - cast config to any to avoid type incompatibility
+    const clean = purifyInstance.sanitize(dirty, sanitizeOptions as any)
+    return String(clean)
   } catch (error) {
     // If sanitization fails, return empty string to be safe
     console.error('HTML sanitization failed:', error)

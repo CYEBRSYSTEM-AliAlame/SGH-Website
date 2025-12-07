@@ -3,9 +3,7 @@
 import { useMemo, useState } from 'react'
 import {
     ClipboardCheck,
-    FileText,
     Shield,
-    CheckCircle2,
     Handshake,
     Activity,
     Sparkles,

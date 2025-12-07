@@ -16,7 +16,6 @@ export default function EventsSection({ events, lang = 'en' }: EventsSectionProp
   // Pre-mark common missing event images to prevent 404 attempts
   // These images don't exist in /public/images/content/
   const [imageErrors, setImageErrors] = useState<Set<number>>(new Set([1, 2, 3]))
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
 
   if (events.length === 0) {
     return null
@@ -70,10 +69,6 @@ export default function EventsSection({ events, lang = 'en' }: EventsSectionProp
                       onError={() => {
                         // Mark as failed - placeholder will remain visible
                         setImageErrors(prev => new Set(prev).add(event.id))
-                      }}
-                      onLoad={() => {
-                        // Image loaded successfully - it will overlay the placeholder
-                        setLoadedImages(prev => new Set(prev).add(event.id))
                       }}
                       loading="lazy"
                     />

@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { Clock, Users, Coffee, Bell, Moon, Sparkles, HeartHandshake } from 'lucide-react'
+import { Clock, Users, Coffee, Bell, Moon, HeartHandshake } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const visitingBlocks = [

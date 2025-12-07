@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search, User, Stethoscope, ArrowUp, Close } from '@carbon/icons-react'
-import { cn } from '@/lib/utils'
 import ScrollAnimation from './ScrollAnimation'
 
 interface FindDoctorSectionProps {
@@ -29,7 +28,6 @@ export default function FindDoctorSection({ lang = 'en' }: FindDoctorSectionProp
   ])
   const inputRef = useRef<HTMLInputElement>(null)
   const suggestionsRef = useRef<HTMLDivElement>(null)
-  const isRtl = lang === 'ar'
 
   // Fetch services
   useEffect(() => {
@@ -77,6 +75,7 @@ export default function FindDoctorSection({ lang = 'en' }: FindDoctorSectionProp
     } else {
       setSuggestions([])
       setShowSuggestions(false)
+      return undefined
     }
   }, [formData.keyword_name])
 

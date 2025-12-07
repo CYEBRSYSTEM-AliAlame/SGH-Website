@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Linkedin, Youtube, Heart, Stethoscope, Users, Calendar, TreePine, ArrowRight, Sparkles } from 'lucide-react'
+import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Linkedin, Youtube, Heart, Stethoscope, Users, Calendar, ArrowRight, Sparkles } from 'lucide-react'
 import { dictionary, type Locale } from '@/lib/i18n'
 import { cn } from '@/lib/utils'
 

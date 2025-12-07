@@ -1,6 +1,6 @@
 'use client'
 
-import { Trophy, UserMultiple, Time, Security, Favorite, Hospital } from '@carbon/icons-react'
+import { Trophy, UserMultiple, Time, Security, Hospital } from '@carbon/icons-react'
 import ScrollAnimation from './ScrollAnimation'
 
 interface WhyChooseUsProps {

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { query } from '@/lib/db'
 import type { MedicalService } from '@/types'
 import servicesData from '@/data/services.json'
-import { createErrorResponse, logError } from '@/lib/errors'
+import { logError } from '@/lib/errors'
 import { generateRequestId } from '@/lib/logger'
 
 export async function GET() {

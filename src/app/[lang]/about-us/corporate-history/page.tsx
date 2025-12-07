@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Calendar, Award, Building2, Users, CheckCircle2, Shield } from 'lucide-react'
+import { Calendar, Award, Building2, Users, Shield } from 'lucide-react'
 import foundingImg from '@/assets/about/founding.png'
 import { type Locale } from '@/lib/i18n'
 
