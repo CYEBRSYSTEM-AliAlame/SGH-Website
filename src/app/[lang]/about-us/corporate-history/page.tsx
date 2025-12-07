@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { Calendar, Award, Building2, Users, Shield } from 'lucide-react'
-import foundingImg from '@/assets/about/founding.png'
 import { type Locale } from '@/lib/i18n'
 
 export default async function CorporateHistoryPage({ params }: { params: Promise<{ lang: Locale }> }) {
@@ -60,10 +59,11 @@ export default async function CorporateHistoryPage({ params }: { params: Promise
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
-                                        src={foundingImg}
+                                        src="/images/main_slider/Main-SGH 1.svg"
                                         alt="Sahel General Hospital Founding 1983"
                                         className="w-full h-auto"
-                                        placeholder="blur"
+                                        width={1024}
+                                        height={1024}
                                     />
                                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
                                         <p className="text-2xl font-bold text-primary">1983</p>
