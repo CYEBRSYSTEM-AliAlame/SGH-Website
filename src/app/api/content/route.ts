@@ -1,22 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { query, queryOne } from '@/lib/db'
+import { queryOne } from '@/lib/db'
 import type { TextContent, Picture } from '@/types'
+import { contentQuerySchema, validateDatabaseHtmlContent } from '@/lib/validation'
+import { createErrorResponse, logError, ValidationError } from '@/lib/errors'
+import { generateRequestId } from '@/lib/logger'
 
 export async function GET(request: NextRequest) {
+  const requestId = generateRequestId()
+  
   try {
     const searchParams = request.nextUrl.searchParams
-    const page = searchParams.get('page')
+    const rawParams = { page: searchParams.get('page') || undefined }
 
-    if (!page) {
-      return NextResponse.json(
-        { error: 'Page parameter is required' },
-        { status: 400 }
-      )
-    }
+    // Validate input
+    const validatedParams = contentQuerySchema.parse(rawParams)
 
     const content = await queryOne<TextContent>(
       "SELECT * FROM txt WHERE related_page = ?",
-      [page]
+      [validatedParams.page]
     )
 
     if (!content) {
@@ -29,17 +30,24 @@ export async function GET(request: NextRequest) {
       [content.id]
     )
 
+    // Validate and sanitize HTML content from database
+    const validatedContent = validateDatabaseHtmlContent(content.txt_en)
+
     return NextResponse.json({
       title: content.txt_title_en,
-      content: content.txt_en,
+      content: validatedContent,
       image: picture?.pic_file || null,
     })
   } catch (error) {
-    console.error('Error fetching content:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch content' },
-      { status: 500 }
-    )
+    logError(error, { requestId, endpoint: '/api/content' })
+    
+    if (error instanceof ValidationError) {
+      const errorResponse = createErrorResponse(error)
+      return NextResponse.json(errorResponse, { status: 400 })
+    }
+
+    const errorResponse = createErrorResponse(error)
+    return NextResponse.json(errorResponse, { status: 500 })
   }
 }
 

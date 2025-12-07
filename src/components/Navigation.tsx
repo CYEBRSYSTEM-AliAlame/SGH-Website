@@ -166,7 +166,7 @@ export default function Navigation({ lang = 'en', currentPage = 'home' }: Naviga
                 src="/assets/sahel_hospital_logo.png"
                 alt={lang === 'ar' ? 'مستشفى الساحل العام' : 'Sahel General Hospital'}
                 className="h-12 w-36 object-contain transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
               />
             </Link>

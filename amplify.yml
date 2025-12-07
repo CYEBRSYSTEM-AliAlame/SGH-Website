@@ -4,6 +4,8 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        - npm run security:audit || true  # Run audit but don't fail build (optional)
+        - npm run type-check
     build:
       commands:
         - npm run build

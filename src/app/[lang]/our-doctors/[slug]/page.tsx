@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { doctorService } from '@/services/doctorService'
 import { getDoctorImagePath, getDoctorName, getDoctorExperience, isHeadOfDepartment } from '@/lib/doctorHelpers'
 import { ArrowLeft, Mail, Phone, Award } from 'lucide-react'
+import { sanitizeHtml } from '@/lib/sanitize'
 
 interface DoctorProfilePageProps {
     params: Promise<{ lang: string; slug: string }>
@@ -74,7 +75,7 @@ export default async function DoctorProfilePage({ params }: DoctorProfilePagePro
                         </h2>
                         <div
                             className="prose prose-lg max-w-none text-text-secondary"
-                            dangerouslySetInnerHTML={{ __html: experience }}
+                            dangerouslySetInnerHTML={{ __html: sanitizeHtml(experience) }}
                         />
                     </div>
 

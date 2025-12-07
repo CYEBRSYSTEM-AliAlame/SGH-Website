@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { contentService } from '@/services/contentService'
 import { Favorite, Trophy, UserMultiple, Tag, ArrowRight, Hospital } from '@carbon/icons-react'
 import { cn } from '@/lib/utils'
+import { sanitizeHtml } from '@/lib/sanitize'
 
 interface AboutSectionProps {
   lang?: string
@@ -16,7 +17,8 @@ export default async function AboutSection({ lang = 'en' }: AboutSectionProps) {
   try {
     aboutContent = await contentService.getByPage('specialists')
   } catch (error) {
-    console.error('Error fetching about content:', error)
+    // Silently fail - use default content
+    // Don't log expected database errors
   }
 
   // Default content if database is not available
@@ -92,7 +94,7 @@ export default async function AboutSection({ lang = 'en' }: AboutSectionProps) {
           <div className="space-y-6">
             <div
               className="text-lg text-text-secondary leading-relaxed space-y-4"
-              dangerouslySetInnerHTML={{ __html: String(content) }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
             />
 
             {/* Key Features */}

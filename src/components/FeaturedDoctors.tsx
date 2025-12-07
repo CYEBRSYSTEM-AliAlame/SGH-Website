@@ -2,11 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Stethoscope, ArrowRight, Hospital, Trophy, LocationStar } from '@carbon/icons-react'
 import { cn } from '@/lib/utils'
 import type { Doctor } from '@/types'
-import { getDoctorImagePath } from '@/lib/doctorHelpers'
 
 interface FeaturedDoctorsProps {
   lang?: string
@@ -20,8 +18,11 @@ export default function FeaturedDoctors({ lang = 'en' }: FeaturedDoctorsProps) {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        // Fetch heads of department via API
-        const res = await fetch('/api/doctors?head_of_dep=true')
+        // Fetch heads of department via API - use absolute URL to avoid language prefix issues
+        const apiUrl = typeof window !== 'undefined' 
+          ? `${window.location.origin}/api/doctors?head_of_dep=true`
+          : '/api/doctors?head_of_dep=true'
+        const res = await fetch(apiUrl)
         if (res.ok) {
           const data = await res.json()
           setDoctors((data.doctors || []).slice(0, 6)) // Show top 6
@@ -83,32 +84,6 @@ export default function FeaturedDoctors({ lang = 'en' }: FeaturedDoctorsProps) {
                   </div>
                 </div>
               )}
-
-              {/* Doctor Image Container */}
-              <div className="relative mb-6 flex justify-center mt-2">
-                <div className="relative w-36 h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden border-4 border-primary shadow-xl group-hover:border-primary-hover group-hover:shadow-2xl group-hover:scale-105 transition-all duration-300 bg-white">
-                  <Image
-                    src={getDoctorImagePath(doctor)}
-                    alt={lang === 'ar' ? doctor.doctor_name_ar : doctor.doctor_name_en}
-                    width={160}
-                    height={160}
-                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
-                    onError={(e) => {
-                      // Fallback to a simple data URI placeholder if Dicebear fails
-                      const target = e.target as HTMLImageElement
-                      target.src = `data:image/svg+xml,${encodeURIComponent(`
-                        <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-                          <rect width="160" height="160" fill="#0f62fe"/>
-                          <text x="50%" y="50%" font-family="Arial" font-size="48" fill="white" text-anchor="middle" dominant-baseline="middle">${(lang === 'ar' ? doctor.doctor_name_ar : doctor.doctor_name_en).charAt(0).toUpperCase()}</text>
-                        </svg>
-                      `)}`
-                    }}
-                    unoptimized={getDoctorImagePath(doctor).includes('dicebear')}
-                  />
-                  {/* Image overlay on hover */}
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
-                </div>
-              </div>
 
               {/* Doctor Info */}
               <div className="text-center relative z-10">

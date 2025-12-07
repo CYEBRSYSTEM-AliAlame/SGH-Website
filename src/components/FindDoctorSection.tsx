@@ -35,7 +35,11 @@ export default function FindDoctorSection({ lang = 'en' }: FindDoctorSectionProp
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await fetch('/api/services')
+        // Use absolute URL to avoid language prefix issues
+        const apiUrl = typeof window !== 'undefined' 
+          ? `${window.location.origin}/api/services`
+          : '/api/services'
+        const res = await fetch(apiUrl)
         if (res.ok) {
           const data = await res.json()
           setServices(data.services?.slice(0, 10).map((s: any) => ({
@@ -55,7 +59,11 @@ export default function FindDoctorSection({ lang = 'en' }: FindDoctorSectionProp
     if (formData.keyword_name.length >= 2) {
       const timeoutId = setTimeout(async () => {
         try {
-          const res = await fetch(`/api/suggestions?keyword=${encodeURIComponent(formData.keyword_name)}`)
+          // Use absolute URL to avoid language prefix issues
+          const apiUrl = typeof window !== 'undefined'
+            ? `${window.location.origin}/api/suggestions?keyword=${encodeURIComponent(formData.keyword_name)}`
+            : `/api/suggestions?keyword=${encodeURIComponent(formData.keyword_name)}`
+          const res = await fetch(apiUrl)
           if (res.ok) {
             const data = await res.json()
             setSuggestions(data.suggestions || [])
@@ -131,8 +139,7 @@ export default function FindDoctorSection({ lang = 'en' }: FindDoctorSectionProp
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Image Side */}
             <div
-              className="hidden md:block bg-cover bg-center relative"
-              style={{ backgroundImage: 'url(/images/doctor-consultation.jpg)' }}
+              className="hidden md:block bg-gradient-to-br from-primary via-primary/90 to-primary-hover relative"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-primary-hover/90 flex items-center justify-center p-12 text-white">
                 <div>

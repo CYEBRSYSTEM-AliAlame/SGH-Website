@@ -75,6 +75,8 @@ SGH-Website/
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Type check without building
+- `npm run security:audit` - Check for security vulnerabilities
+- `npm run security:check` - Run full security check (audit + type check + lint)
 
 ## Features
 
@@ -87,6 +89,37 @@ SGH-Website/
 - ✅ Image Optimization
 - ✅ Database Integration
 - ✅ AWS Amplify Ready
+
+## Security
+
+This application implements comprehensive security measures following **OWASP ASVS Level 3** standards:
+
+### Security Features
+
+- **Input Validation**: All API endpoints validate and sanitize inputs using Zod schemas
+- **SQL Injection Prevention**: Parameterized queries with input validation
+- **Rate Limiting**: Per-IP rate limiting (100 requests/minute) to prevent DDoS
+- **Security Headers**: CSP, HSTS, X-Frame-Options, and other security headers
+- **Error Handling**: Centralized error handling that prevents information disclosure
+- **Database Security**: SSL/TLS encryption with certificate validation
+- **Structured Logging**: Sanitized logging with request tracking
+- **Environment Validation**: Runtime validation of environment variables
+
+### Security Commands
+
+```bash
+# Check for vulnerabilities
+npm run security:audit
+
+# Run full security check
+npm run security:check
+```
+
+For detailed security information, see [SECURITY.md](./SECURITY.md).
+
+### Reporting Vulnerabilities
+
+If you discover a security vulnerability, please **do not** open a public issue. See [SECURITY.md](./SECURITY.md) for reporting instructions.
 
 ## License
 

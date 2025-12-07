@@ -143,6 +143,9 @@ export default function MainSlider({ slides, lang = 'en' }: MainSliderProps) {
                   alt={lang === 'ar' ? (slide as any).header1_ar || slide.header1_en : slide.header1_en}
                   className="w-full h-full object-cover object-center"
                   style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding={index === 0 ? 'sync' : 'async'}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     if (!target.src.includes('doctor-patient.png')) {
@@ -156,11 +159,12 @@ export default function MainSlider({ slides, lang = 'en' }: MainSliderProps) {
                   alt={lang === 'ar' ? (slide as any).header1_ar || slide.header1_en : slide.header1_en}
                   fill
                   priority={index === 0}
-                  quality={95}
+                  quality={index === 0 ? 95 : 75}
                   unoptimized={false}
                   className="object-cover object-center"
                   sizes="100vw"
                   style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     if (!target.src.includes('doctor-patient.png')) {

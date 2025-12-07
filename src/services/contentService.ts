@@ -1,5 +1,6 @@
 import { query, queryOne } from '@/lib/db'
 import type { TextContent, Picture } from '@/types'
+import { validateDatabaseHtmlContent } from '@/lib/validation'
 
 export const contentService = {
   async getByPage(page: string): Promise<{ title: string; content: string; image: string | null } | null> {
@@ -19,13 +20,17 @@ export const contentService = {
         [content.id]
       )
 
+      // Validate and sanitize HTML content from database
+      const validatedContent = validateDatabaseHtmlContent(content.txt_en)
+
       return {
         title: content.txt_title_en || '',
-        content: content.txt_en || '',
+        content: validatedContent,
         image: picture?.pic_file || null,
       }
     } catch (error) {
       // Return null when DB is not configured - component will handle gracefully
+      // Don't log expected database connection errors
       return null
     }
   },
